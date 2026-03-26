@@ -1,0 +1,30 @@
+aid: api-dynamics
+name: API Dynamics
+description: >-
+  API Dynamics is an API traffic analysis platform for discovering hidden insights and strengthening API security.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API Analysis
+  - API Traffic
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/api-dynamics/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: api-dynamics:api-dynamics
+    name: API Dynamics
+    description: >-
+      API Dynamics is an API traffic analysis platform for discovering hidden insights and strengthening API security.
+    humanURL: https://www.apidynamics.com
+    tags:
+      - API Analysis
+      - API Traffic
+    properties: []
+common:
+  - type: Website
+    url: https://www.apidynamics.com
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
