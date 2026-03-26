@@ -1,30 +1,51 @@
 aid: api-dynamics
 name: API Dynamics
 description: >-
-  API Dynamics is an API traffic analysis platform for discovering hidden insights and strengthening API security.
+  API Dynamics is an API traffic analysis and intelligence platform that helps
+  organizations discover, monitor, and secure their API traffic to uncover
+  hidden insights and strengthen API security posture.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API Analysis
-  - API Traffic
+  - API Traffic Analysis
+  - API Security
+  - API Discovery
+  - API Intelligence
+  - API Monitoring
 url: >-
   https://raw.githubusercontent.com/api-evangelist/api-dynamics/refs/heads/main/apis.yml
 created: '2026-03-26'
 modified: '2026-03-26'
 specificationVersion: '0.19'
 apis:
-  - aid: api-dynamics:api-dynamics
-    name: API Dynamics
+  - aid: api-dynamics:api-dynamics-platform
+    name: API Dynamics Platform
     description: >-
-      API Dynamics is an API traffic analysis platform for discovering hidden insights and strengthening API security.
+      The API Dynamics platform provides API traffic analysis capabilities
+      including API discovery, traffic monitoring, security analysis, and
+      behavioral insights for understanding and securing API ecosystems.
     humanURL: https://www.apidynamics.com
+    properties:
+      - type: Documentation
+        url: https://www.apidynamics.com/docs
+      - type: GettingStarted
+        url: https://www.apidynamics.com/getting-started
     tags:
-      - API Analysis
-      - API Traffic
-    properties: []
+      - API Traffic Analysis
+      - API Security
+      - API Discovery
+      - API Intelligence
 common:
   - type: Website
     url: https://www.apidynamics.com
+  - type: Blog
+    url: https://www.apidynamics.com/blog
+  - type: Login
+    url: https://app.apidynamics.com
+  - type: Signup
+    url: https://www.apidynamics.com/signup
+  - type: Support
+    url: https://www.apidynamics.com/contact
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
