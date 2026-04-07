@@ -7,11 +7,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API Traffic Analysis
-  - API Security
   - API Discovery
   - API Intelligence
   - API Monitoring
+  - API Security
+  - API Traffic Analysis
 url: >-
   https://raw.githubusercontent.com/api-evangelist/api-dynamics/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -31,10 +31,10 @@ apis:
       - type: GettingStarted
         url: https://www.apidynamics.com/getting-started
     tags:
-      - API Traffic Analysis
-      - API Security
       - API Discovery
       - API Intelligence
+      - API Security
+      - API Traffic Analysis
 common:
   - type: Website
     url: https://www.apidynamics.com
