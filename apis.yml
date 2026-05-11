@@ -117,6 +117,36 @@ common:
         description: >-
           Integrates with API gateway solutions to provide traffic analysis
           and security enforcement at the gateway layer.
+  - type: Integrations
+    url: https://www.apidynamics.com/integrations
+integrations:
+  - name: apidynamics brand
+  - name: api-bg-2.png
+  - name: 2.jpg
+  - name: 4.jpg
+  - name: apidee-logo.png
+  - name: 3.jpg
+  - name: 5.jpg
+  - name: Akamai-new-logo.png
+  - name: 6.jpg
+  - name: 1.jpg
+  - name: Kubernets-logo.png
+  - name: 7.jpg
+  - name: aws-logo.png
+  - name: salesforce-logo.png
+  - name: workday.png
+  - name: servicenow.png
+  - name: SAP-full-logo.png
+  - name: office 365.png
+  - name: Google-Workspace.png
+  - name: open AI.png
+  - name: LangChain.png
+  - name: Semantic Kernel.png
+  - name: splunk.png
+  - name: elastic.png
+  - name: datadog.png
+  - name: Chronicle.png
+  - name: apidynamics brand tranparent
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
