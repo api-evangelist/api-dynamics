@@ -40,6 +40,8 @@ apis:
       - type: GettingStarted
         url: https://www.apidynamics.com/why-apidynamics
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/apidynamics
   - type: Website
     url: https://www.apidynamics.com
   - type: Blog
