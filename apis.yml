@@ -121,6 +121,8 @@ common:
           and security enforcement at the gateway layer.
   - type: Integrations
     url: https://www.apidynamics.com/integrations
+  - type: LLMsTxt
+    url: https://apidynamics.com/llms.txt
 integrations:
   - name: apidynamics brand
   - name: api-bg-2.png
