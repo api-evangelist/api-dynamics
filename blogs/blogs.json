@@ -2,11 +2,11 @@
   "repo": "api-dynamics",
   "feeds": [
     {
-      "source": "https://www.apidynamics.com/news",
-      "feed_url": "https://www.apidynamics.com/news",
+      "source": "https://www.apidynamics.com/blog-feed.xml",
+      "feed_url": "https://www.apidynamics.com/blog-feed.xml",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "feed"
     },
     {
       "source": "https://www.apidynamics.com",
@@ -16,6 +16,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 20,
+  "fetched": "2026-06-27T12:03:07Z"
 }

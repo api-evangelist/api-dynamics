@@ -48,7 +48,7 @@ common:
     url: https://www.apidynamics.com/news
   - type: Login
     url: https://app.apidynamics.com
-  - type: SignUp
+  - type: Signup
     url: https://www.apidynamics.com/signup
   - type: Support
     url: https://www.apidynamics.com/contact
@@ -121,7 +121,7 @@ common:
           and security enforcement at the gateway layer.
   - type: Integrations
     url: https://www.apidynamics.com/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://apidynamics.com/llms.txt
 integrations:
   - name: apidynamics brand
