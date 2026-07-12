@@ -40,6 +40,8 @@ apis:
       - type: GettingStarted
         url: https://www.apidynamics.com/why-apidynamics
 common:
+  - type: DomainSecurity
+    url: security/api-dynamics-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/apidynamics
   - type: Website
