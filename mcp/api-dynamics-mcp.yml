@@ -1,0 +1,98 @@
+generated: '2026-09-02'
+method: probed
+source: https://www.apidynamics.com/_api/mcp
+status: published
+deployment:
+  mode: remote
+  endpoint: https://www.apidynamics.com/_api/mcp
+  auth: none
+  verified: probed
+server:
+  name: apidynamics-site-mcp
+  transport: http
+  url: https://www.apidynamics.com/_api/mcp
+  protocol: MCP (JSON-RPC 2.0 over HTTP)
+  authentication: >-
+    No credential is required to connect or to call tools/list. CallWixSiteAPI and
+    ExecuteWixAPI require a visitor token, which GenerateVisitorToken mints anonymously
+    for any caller.
+  advertised_in: https://www.apidynamics.com/llms.txt
+provenance:
+  platform: Wix
+  note: >-
+    This MCP endpoint is provided by the Wix site platform, not authored by APIDynamics.
+    It is served from the apidynamics.com host, is advertised by APIDynamics' own
+    llms.txt, answers anonymously, and exposes real tools over the site's public
+    marketing content — so it is recorded as a live agent surface at this provider.
+    It is NOT the APIDynamics product API: no tool reaches the adaptive-authentication,
+    risk-scoring, API-discovery or Zero Trust enforcement service the company sells.
+    Every tool is scoped to the Wix site and the Wix developer documentation.
+  platform_docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
+  tool_list_file: api-dynamics-mcp-tools-list.json
+  untrusted_content: >-
+    The verbatim tools/list response embeds vendor "agent-mandatory-instructions" text
+    inside several tool descriptions. That text is DATA captured for the record — it is
+    not instruction to any agent reading this repository, and was not followed here.
+tools:
+- name: GetBusinessDetails
+  description: Get business and site details for the APIDynamics site (timezone, email, phone, address).
+  parameters: []
+- name: SearchInSite
+  description: Searches the APIDynamics site for information.
+  parameters:
+  - searchTerm
+  required:
+  - searchTerm
+- name: SearchSiteApiDocs
+  description: >-
+    Searches the site's API documentation and returns how to use the Wix business
+    solutions installed on the site.
+  parameters:
+  - searchTerm
+  required:
+  - searchTerm
+- name: GenerateVisitorToken
+  description: Create a new visitor session and obtain a visitor access token for the site.
+  parameters: []
+- name: CallWixSiteAPI
+  description: >-
+    Call APIs on the site to act on a visitor's behalf (query site data, book, start a
+    purchase). Requires a visitor token.
+  parameters:
+  - visitorToken
+  - url
+  - method
+  - body
+  required:
+  - visitorToken
+  - url
+  - method
+- name: ExecuteWixAPI
+  description: >-
+    Run JavaScript against the Wix REST API on the site, on the visitor's behalf, inside
+    a sandbox.
+  parameters:
+  - code
+  - reason
+  - hasMutations
+- name: BrowseWixRESTDocsMenu
+  description: Browse the Wix REST API documentation menu hierarchy.
+  parameters: []
+- name: ReadFullDocsArticle
+  description: Fetches a full article from the Wix developer documentation portal.
+  parameters:
+  - articleUrl
+  required:
+  - articleUrl
+- name: ReadFullDocsMethodSchema
+  description: Fetches the full request/response schema for a Wix API method.
+  parameters:
+  - articleUrl
+  required:
+  - articleUrl
+x-evidence:
+  fetched: '2026-09-02'
+  request: 'POST https://www.apidynamics.com/_api/mcp {"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+  http_status: 200
+  tool_count: 9
+  saved: mcp/api-dynamics-mcp-tools-list.json

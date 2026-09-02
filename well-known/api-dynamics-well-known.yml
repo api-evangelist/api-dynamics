@@ -1,0 +1,95 @@
+generated: '2026-09-02'
+method: probed
+source: live HTTP probes of every host named in apis.yml
+note: >-
+  APIDynamics runs a Wix-hosted marketing site. Every /.well-known/* path returns HTTP 400
+  with a ~2.2KB HTML body — the Wix router's response for an unrouted path — so there is no
+  discovery surface: no security.txt, no OIDC or OAuth metadata, no api-catalog, no AAuth
+  resource, no agent card. The negative control returned the same 400 HTML, confirming the
+  host is not path-echoing and not answering 200 to everything. Recorded as an honest zero.
+  Two documents DO serve on this host and are recorded under found[]: /llms.txt (which is
+  what advertises the site's MCP endpoint) and /robots.txt + /sitemap.xml.
+hit_count: 0
+path_echo_control: passed
+found:
+- path: /llms.txt
+  status: 200
+  content_type: text/plain
+  file: ../llms/api-dynamics-llms.txt
+- path: /robots.txt
+  status: 200
+  content_type: text/plain
+- path: /sitemap.xml
+  status: 200
+  content_type: application/xml
+hosts:
+- host: https://www.apidynamics.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 400
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 400
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+    content_type: text/html
+  - path: /.well-known/oauth-protected-resource
+    status: 400
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 400
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 400
+    content_type: text/html
+  - path: /.well-known/ucp.json
+    status: 400
+    content_type: text/html
+  - path: /.well-known/acp.json
+    status: 400
+    content_type: text/html
+  - path: /.well-known/aauth-resource.json
+    status: 400
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 400
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 400
+    content_type: text/html
+  - path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 400
+    content_type: text/html
+    control: negative
+x-evidence:
+  fetched: '2026-09-02'
+  hosts_probed:
+  - www.apidynamics.com
+  - apidynamics.com
+  hosts_unresolved:
+  - host: app.apidynamics.com
+    dns: NXDOMAIN
+    note: carried as the Login pointer in apis.yml until this pass; removed as confirmed dead
+  - host: api.apidynamics.com
+    dns: NXDOMAIN
+  - host: docs.apidynamics.com
+    dns: NXDOMAIN
+  - host: developer.apidynamics.com
+    dns: NXDOMAIN
+  - host: developers.apidynamics.com
+    dns: NXDOMAIN
+  - host: status.apidynamics.com
+    dns: NXDOMAIN
+  - host: trust.apidynamics.com
+    dns: NXDOMAIN
+  - host: security.apidynamics.com
+    dns: NXDOMAIN
+  - host: developer.apidynamics.sevenhills.ai
+    dns: NOERROR, no A record
+    note: >-
+      The developer portal APIDynamics links from its own /developers and /platform pages.
+      Resolves to nothing, so no /.well-known/ probe could be issued against it.
+  - host: learn.sevenhills.ai
+    dns: NOERROR, no A record
+    note: The "Developer Guide" host linked from /developers. Resolves to nothing.

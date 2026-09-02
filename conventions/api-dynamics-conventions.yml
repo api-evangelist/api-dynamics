@@ -1,0 +1,88 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.apidynamics.com/platform
+note: >-
+  APIDynamics publishes no OpenAPI, no API reference and no developer guide that resolves,
+  so most cross-cutting semantics simply are not stated anywhere public. Every field below
+  is either evidenced or explicitly marked unknown; nothing is inferred to fill a slot.
+authentication:
+  style: header-token
+  detail: >-
+    Two APIDynamics-specific headers identify the tenant and the calling client
+    (X-API-Dynamics-Provider-Id, X-API-Dynamics-Client-Id). Step-up is TOTP or HMAC.
+  see: authentication/api-dynamics-authentication.yml
+  confidence: medium
+idempotency:
+  supported: unknown
+  detail: >-
+    No idempotency key, retry contract or replay-safety statement is published. The two
+    observed read operations are GETs and therefore naturally safe to retry; the one
+    observed write-shaped operation (POST /adaptive/server/validate) is a scoring call that
+    returns a decision rather than creating a durable resource, but APIDynamics does not say
+    whether repeating it is safe. Recorded as unknown, not as absent and not as supported.
+  header: null
+pagination:
+  supported: unknown
+  detail: No collection endpoint is published, so no pagination contract could be observed.
+field_expansion:
+  supported: unknown
+metadata:
+  supported: unknown
+request_tracing:
+  supported: partial
+  detail: >-
+    A caller-supplied transaction id (tid) threads a TOTP generate/validate pair, and the
+    response echoes it back as transaction_id. That is a correlation identifier for one
+    authentication transaction, not a general request-id tracing header. No X-Request-Id or
+    equivalent is documented.
+  parameter: tid
+  response_field: transaction_id
+  confidence: medium
+versioning:
+  scheme: unknown
+  detail: >-
+    The observed base path carries no version segment (/api/dynamics). No versioning policy,
+    version header, or dated release train is published.
+error_envelope:
+  format: custom-json
+  shape: '{ error, detail }'
+  rfc9457: false
+  detail: >-
+    Observed in the third-party integration demo's AdaptiveAuthError model. No public error
+    reference, error-code registry or status-code table exists, so errors/ was not written —
+    an envelope shape alone is not an error catalog.
+  confidence: medium
+rate_limit_signaling:
+  documented: false
+  detail: >-
+    No rate limits, quotas, throttle response code, or RateLimit/X-RateLimit/Retry-After
+    header behaviour is published. See rate-limits/api-dynamics-rate-limits.yml.
+reversibility:
+  applicable: na
+  grade: na
+  detail: >-
+    Nothing in the public APIDynamics surface is a write API. The three observed operations
+    generate a one-time password, validate a one-time password, and score an inbound call —
+    none of them creates, mutates or destroys a durable resource that a caller could need to
+    take back, and no cancel/refund/void/undo/restore operation is documented anywhere. So
+    reversibility, dry_run_mode and idempotency are all `na` for this provider rather than
+    zero. If APIDynamics publishes a policy/configuration management API later, this block
+    stops being na and needs a real answer.
+  reversal_operations: []
+  windows: []
+cross_links:
+  authentication: authentication/api-dynamics-authentication.yml
+  rate_limits: rate-limits/api-dynamics-rate-limits.yml
+  lifecycle: lifecycle/api-dynamics-lifecycle.yml
+  conformance: conformance/api-dynamics-conformance.yml
+x-evidence:
+  fetched: '2026-09-02'
+  probes:
+  - url: https://www.apidynamics.com/platform
+    status: 200
+  - url: https://www.apidynamics.com/documentation
+    status: 200
+  - url: https://www.apidynamics.com/developers
+    status: 200
+  - url: https://github.com/gitguru/adaptive-auth-java-server
+    status: 200

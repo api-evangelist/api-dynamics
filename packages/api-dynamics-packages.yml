@@ -1,0 +1,87 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.apidynamics.com/platform
+note: >-
+  APIDynamics ADVERTISES client SDKs — its platform page says integration is available via
+  "SDKs: Python, Java, Node, and more" — but no first-party package exists on any public
+  registry. Every registry below was queried unauthenticated on 2026-09-02 and returned a
+  miss. This is the finding, not a gap in the search: a buyer reading the platform page
+  cannot install what it names. Nothing was marked official, because nothing was found.
+package_count: 0
+official_count: 0
+packages: []
+claimed_but_unpublished:
+- language: python
+  claim: 'SDKs: Python, Java, Node, and more'
+  claim_url: https://www.apidynamics.com/platform
+  registry: pypi
+  found: false
+  version: null
+  published: null
+- language: java
+  claim: 'SDKs: Python, Java, Node, and more'
+  claim_url: https://www.apidynamics.com/platform
+  registry: maven-central
+  found: false
+  version: null
+  published: null
+- language: javascript
+  claim: 'SDKs: Python, Java, Node, and more'
+  claim_url: https://www.apidynamics.com/platform
+  registry: npm
+  found: false
+  version: null
+  published: null
+registry_probes:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=apidynamics
+  result: 0 results
+- registry: npm
+  query: https://registry.npmjs.org/apidynamics
+  status: 404
+- registry: pypi
+  query: https://pypi.org/pypi/apidynamics/json
+  status: 404
+- registry: pypi
+  query: https://pypi.org/pypi/api-dynamics/json
+  status: 404
+- registry: maven-central
+  query: https://search.maven.org/solrsearch/select?q=apidynamics
+  result: numFound 0
+- registry: maven-central
+  query: https://search.maven.org/solrsearch/select?q=sevenhills
+  result: numFound 0
+- registry: rubygems
+  query: https://rubygems.org/api/v1/gems/apidynamics.json
+  status: 404
+- registry: crates.io
+  query: https://crates.io/api/v1/crates/apidynamics
+  status: 404
+source_code:
+  github_org: none
+  detail: >-
+    No github.com/apidynamics or github.com/api-dynamics organization or user account exists
+    (both 404 on the GitHub API). A code search surfaces two public Spring Boot demos by an
+    individual, gitguru/adaptive-auth-java-server and gitguru/adaptive-auth-java-client, whose
+    Java package is com.apidynamics.test and which are configured against the APIDynamics
+    developer host. They are integration EXAMPLES by a third party, not first-party client
+    libraries, and are recorded here as leads only — official is false and neither is
+    installable from a registry.
+  related_repositories:
+  - url: https://github.com/gitguru/adaptive-auth-java-server
+    owner: gitguru
+    official: false
+    last_push: '2025-03-28'
+    note: Spring Boot server-side adaptive-auth demo; package com.apidynamics.test.server_demo.
+  - url: https://github.com/gitguru/adaptive-auth-java-client
+    owner: gitguru
+    official: false
+    note: Client half of the same demo pair.
+x-evidence:
+  fetched: '2026-09-02'
+  registries_queried: [npm, pypi, maven-central, rubygems, crates.io]
+  github_org_probe:
+  - url: https://api.github.com/orgs/apidynamics
+    status: 404
+  - url: https://api.github.com/users/apidynamics
+    status: 404

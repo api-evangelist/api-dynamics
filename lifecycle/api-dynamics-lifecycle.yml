@@ -1,0 +1,48 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.apidynamics.com/sitemap.xml
+note: >-
+  A full walk of the 39 pages APIDynamics lists in its own sitemap, plus direct probes of the
+  conventional subdomains, found no versioning policy, no deprecation policy, no SLA, no
+  status page and no dated changelog. This is a recorded absence, not an unfinished search —
+  which is why no StatusPage and no Deprecation pointer was wired into apis.yml.
+versioning:
+  scheme: unknown
+  current: null
+  docs: null
+  detail: The one observed base path, /api/dynamics, carries no version segment.
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  detail: No deprecation or sunset policy is published.
+sla:
+  url: null
+  uptime_target: null
+  detail: >-
+    No SLA document is published. The pricing surface is a "Get a Demo" form, so any SLA is
+    presumably contractual and private.
+status_page: null
+status_page_probes:
+- url: https://status.apidynamics.com
+  status: '<no response> (NXDOMAIN)'
+- url: https://www.apidynamics.com/status
+  status: 404
+changelog: null
+changelog_detail: >-
+  APIDynamics publishes a blog at /news and /blog (last post 2025-10-31 per the blog sitemap),
+  but it is editorial API-security content, not a dated product changelog — no versions, no
+  breaking-change notices, no release notes. changelog/ was deliberately not written.
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-09-02'
+  probes:
+  - url: https://www.apidynamics.com/sitemap.xml
+    status: 200
+  - url: https://www.apidynamics.com/pages-sitemap.xml
+    status: 200
+  - url: https://www.apidynamics.com/blog-posts-sitemap.xml
+    status: 200
+  - url: https://www.apidynamics.com/news
+    status: 200
+  - url: https://status.apidynamics.com
+    status: '<no response> (NXDOMAIN)'

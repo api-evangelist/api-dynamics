@@ -41,7 +41,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/api-dynamics/refs/heads/main/apis.yml
 created: '2026-03-26'
-modified: '2026-04-19'
+modified: '2026-09-02'
 specificationVersion: '0.23'
 apis:
   - aid: api-dynamics:api-dynamics-platform
@@ -59,9 +59,11 @@ apis:
       - API Observability
     properties:
       - type: Documentation
-        url: https://www.apidynamics.com
+        url: https://www.apidynamics.com/documentation
       - type: GettingStarted
         url: https://www.apidynamics.com/why-apidynamics
+      - type: Authentication
+        url: authentication/api-dynamics-authentication.yml
 common:
   - type: DomainSecurity
     url: security/api-dynamics-domain-security.yml
@@ -71,12 +73,26 @@ common:
     url: https://www.apidynamics.com
   - type: Blog
     url: https://www.apidynamics.com/news
-  - type: Login
-    url: https://app.apidynamics.com
-  - type: Signup
-    url: https://www.apidynamics.com/signup
+  - type: SignUp
+    url: https://www.apidynamics.com/sign-up
   - type: Support
-    url: https://www.apidynamics.com/contact
+    url: https://www.apidynamics.com/contact-us
+  - type: DeveloperPortal
+    url: https://www.apidynamics.com/developers
+  - type: Documentation
+    url: https://www.apidynamics.com/documentation
+  - type: MCPServer
+    url: mcp/api-dynamics-mcp.yml
+  - type: Authentication
+    url: authentication/api-dynamics-authentication.yml
+  - type: Conventions
+    url: conventions/api-dynamics-conventions.yml
+  - type: Conformance
+    url: conformance/api-dynamics-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/api-dynamics-lifecycle.yml
+  - type: Packages
+    url: packages/api-dynamics-packages.yml
   - type: Features
     data:
       - name: API Discovery
@@ -146,8 +162,8 @@ common:
           and security enforcement at the gateway layer.
   - type: Integrations
     url: https://www.apidynamics.com/integrations
-  - type: LlmsText
-    url: https://apidynamics.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.apidynamics.com/llms.txt
 integrations:
   - name: apidynamics brand
   - name: api-bg-2.png
@@ -179,3 +195,8 @@ integrations:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-02'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1

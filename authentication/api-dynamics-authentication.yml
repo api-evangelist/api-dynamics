@@ -1,0 +1,108 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.apidynamics.com/platform
+docs: https://www.apidynamics.com/documentation
+note: >-
+  APIDynamics publishes no OpenAPI, so this profile could not be derived mechanically.
+  It is assembled from two sources, kept separate below: (a) what APIDynamics states on
+  its own product pages, and (b) header and endpoint names observed in a public
+  third-party integration demo that is configured against the APIDynamics developer host.
+  Nothing here is invented; every scheme carries its evidence and its confidence.
+summary:
+  types: [apiKey, oauth2, openIdConnect, hmac, totp]
+  api_key_in: [header]
+  oauth2_flows: []
+  spec_backed: false
+  confidence: medium
+schemes:
+- name: X-API-Dynamics-Provider-Id
+  type: apiKey
+  in: header
+  description: >-
+    The API provider's public key, sent by the protected service on every call it makes to
+    the APIDynamics adaptive-authentication service. Identifies the tenant.
+  confidence: medium
+  evidence:
+    kind: third-party-integration-demo
+    url: https://github.com/gitguru/adaptive-auth-java-server
+    file: src/main/java/com/apidynamics/test/server_demo/service/AdaptiveAuthenticationService.java
+- name: X-API-Dynamics-Client-Id
+  type: apiKey
+  in: header
+  description: >-
+    The calling API client's public key, forwarded from the inbound request so APIDynamics
+    can score and validate that specific client.
+  confidence: medium
+  evidence:
+    kind: third-party-integration-demo
+    url: https://github.com/gitguru/adaptive-auth-java-server
+    file: src/main/java/com/apidynamics/test/server_demo/filter/AdaptiveAuthenticationFilter.java
+- name: TOTP step-up
+  type: totp
+  description: >-
+    Time-based one-time password issued and validated by APIDynamics as the step-up factor
+    for API-to-API multi-factor authentication.
+  confidence: high
+  evidence:
+    kind: provider-docs
+    url: https://www.apidynamics.com/platform
+    quote: 'Step-up MFA via TOTP, token headers, or HMAC-based authentication'
+- name: HMAC API-to-API
+  type: hmac
+  description: >-
+    HMAC request signing for service-to-service authentication, offered as an alternative
+    to header-token enforcement.
+  confidence: high
+  evidence:
+    kind: provider-docs
+    url: https://www.apidynamics.com/hmac-api-to-api-authentication
+- name: OAuth 2.0 / OpenID Connect
+  type: oauth2
+  description: >-
+    APIDynamics markets an OAuth 2.0 / OIDC authentication surface for the APIs it protects.
+    No authorization or token endpoint, and no scope list, is published anywhere public —
+    so no flow could be recorded and scopes/ was deliberately not written.
+  confidence: low
+  evidence:
+    kind: provider-docs
+    url: https://www.apidynamics.com/oauth-oidc-apidynamics-api-authentication
+observed_surface:
+  note: >-
+    OWNERSHIP AND PROVENANCE. These endpoints were NOT harvested from an APIDynamics-published
+    contract — no such contract exists publicly. They were read out of a public Spring Boot
+    integration demo (gitguru/adaptive-auth-java-server, package com.apidynamics.test) whose
+    application.properties is configured against the APIDynamics developer host that
+    APIDynamics itself links from https://www.apidynamics.com/developers and /platform.
+    They are recorded as OBSERVED, not as a specification, and no OpenAPI was authored from
+    them. The base host does not currently resolve, so none of them could be probed live.
+  base_url: https://developer.apidynamics.sevenhills.ai/api/dynamics
+  base_url_status: unreachable
+  base_url_dns: NOERROR, no A record (probed 2026-09-02)
+  operations:
+  - method: GET
+    path: /totp/client/generate
+    query: [tid]
+    headers: [X-API-Dynamics-Provider-Id, X-API-Dynamics-Client-Id]
+    purpose: Ask APIDynamics to issue a TOTP for a named API client within a transaction.
+  - method: GET
+    path: /totp/server/validate
+    query: [tid, totp]
+    headers: [X-API-Dynamics-Provider-Id]
+    purpose: Validate a TOTP against a transaction id.
+  - method: POST
+    path: /adaptive/server/validate
+    headers: [X-API-Dynamics-Provider-Id]
+    request_fields: [client_id, client_request_headers, client_request_endpoint, client_request_method]
+    purpose: Score an inbound API call and return an allow/step-up/deny decision.
+  response_envelope:
+    success: '{ transaction_id, validation_result: { score, decision } }'
+    error: '{ error, detail }'
+x-evidence:
+  fetched: '2026-09-02'
+  probes:
+  - url: https://www.apidynamics.com/platform
+    status: 200
+  - url: https://www.apidynamics.com/documentation
+    status: 200
+  - url: https://developer.apidynamics.sevenhills.ai/api/dynamics/adaptive/server/validate
+    status: '<no response> (host does not resolve)'

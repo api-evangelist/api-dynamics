@@ -1,0 +1,111 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.apidynamics.com/api-security-compliance
+note: >-
+  APIDynamics sells API security, so its marketing names a great many standards. This file
+  draws the line the rubric cares about: a standard the PRODUCT implements or the COMPANY
+  holds, versus a standard APIDynamics helps its customers comply with. Everything in the
+  second category is recorded with conforms:false and a `relationship: assists-customers`
+  marker, because crediting it would be crediting a sales page. No certification is claimed
+  by APIDynamics anywhere on its own site, so no Compliance pointer was emitted.
+standards:
+- id: oauth2
+  conforms: true
+  relationship: implements
+  evidence: >-
+    Product page "OAuth & OIDC API Authentication" (https://www.apidynamics.com/oauth-oidc-apidynamics-api-authentication).
+    No authorization/token endpoint or scope list is published, so no flow detail could be captured.
+  confidence: low
+- id: oidc
+  conforms: true
+  relationship: implements
+  evidence: Same page as oauth2; no /.well-known/openid-configuration is served (probed, HTTP 400).
+  confidence: low
+- id: rfc6238-totp
+  conforms: true
+  relationship: implements
+  evidence: >-
+    TOTP generate/validate operations observed at /totp/client/generate and /totp/server/validate;
+    "Step-up MFA via TOTP" stated on https://www.apidynamics.com/platform.
+  confidence: medium
+- id: hmac-request-signing
+  conforms: true
+  relationship: implements
+  evidence: Product page https://www.apidynamics.com/hmac-api-to-api-authentication
+  confidence: medium
+- id: owasp-api-security-top-10
+  conforms: true
+  relationship: implements
+  evidence: >-
+    BOLA and BFLA detection are marketed as core capabilities; both are OWASP API Security
+    Top 10 categories (API1/API5).
+  confidence: medium
+- id: zero-trust-nist-sp-800-207
+  conforms: true
+  relationship: implements
+  evidence: Zero Trust API Access product page https://www.apidynamics.com/zero-trust-api-access-ztaa
+  confidence: low
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Observed error envelope is a custom '{ error, detail }' object, not application/problem+json.
+- id: soc2
+  conforms: false
+  relationship: assists-customers
+  evidence: >-
+    "Audit logs supporting SOC 2, HIPAA, PCI, and ISO 27001 compliance" — the claim is that the
+    product helps customers evidence these, not that APIDynamics holds them. No trust center,
+    no certification page, no auditor named. trust.apidynamics.com does not resolve (NXDOMAIN).
+- id: iso-27001
+  conforms: false
+  relationship: assists-customers
+  evidence: Same as soc2. No certificate published.
+- id: pci-dss
+  conforms: false
+  relationship: assists-customers
+  evidence: >-
+    "Whether it's NIST, HIPAA, GDPR, PCI DSS, or industry-specific regulations, APIDynamics
+    assists in aligning your API security practices with the necessary controls and protocols."
+- id: hipaa
+  conforms: false
+  relationship: assists-customers
+  evidence: Same sentence as pci-dss. No BAA or HIPAA attestation published.
+- id: gdpr
+  conforms: false
+  relationship: assists-customers
+  evidence: >-
+    Named in the same compliance-assist sentence. Notably, no privacy policy and no terms of
+    service page exists anywhere in the site's own sitemap (39 pages, checked 2026-09-02).
+- id: nist
+  conforms: false
+  relationship: assists-customers
+  evidence: Named in the same compliance-assist sentence.
+- id: fapi
+  conforms: false
+  evidence: Not claimed and not derivable — no spec published.
+- id: scim
+  conforms: false
+  evidence: Not claimed. No SCIM schema URN or /Users endpoint published.
+domain_standard:
+  market: API security / API access management
+  declared: false
+  detail: >-
+    REWARD-ONLY CHECK, HONESTLY UNFILLED. The API-security market's nearest thing to a
+    machine-readable domain standard would be an OCSF or STIX/TAXII finding feed, an OpenAPI
+    x-agentic-access contract, or a published OWASP-API-Top-10-mapped rule set. APIDynamics
+    declares none of these in a contract, because it publishes no contract. Nothing was
+    invented to fill this slot.
+  probed:
+  - ocsf
+  - stix-taxii
+  - openapi-x-agentic-access
+x-evidence:
+  fetched: '2026-09-02'
+  probes:
+  - url: https://www.apidynamics.com/api-security-compliance
+    status: 200
+  - url: https://www.apidynamics.com/platform
+    status: 200
+  - url: https://www.apidynamics.com/.well-known/openid-configuration
+    status: 400
+  - url: https://trust.apidynamics.com
+    status: '<no response> (NXDOMAIN)'
