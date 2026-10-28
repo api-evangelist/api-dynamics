@@ -1,4 +1,4 @@
-# API Dynamics (api-dynamics)
+# API Dynamics
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,74 +66,110 @@
 
 APIDynamics is an AI-driven API security and observability platform that empowers enterprises to gain real-time visibility and secure every API endpoint with intelligent, automated analytics. The platform provides adaptive MFA, real-time risk scoring, Zero Trust enforcement, API discovery, shadow and zombie API detection, BOLA/BFLA detection, sensitive data tracking, and anomaly detection — all within a unified dashboard.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/api-dynamics/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/api-dynamics/refs/heads/main/apis.yml)
+**Areas:** API Security · API Discovery · API Observability · Zero Trust · API Intelligence
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## API Dynamics on APIs.io
 
-## Tags:
+Everything profiled for API Dynamics is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/api-dynamics/](https://apis.io/providers/api-dynamics/)** — or go straight to one of the APIs or properties below.
 
- - API Security, API Discovery, API Observability, Zero Trust, API Intelligence
+### APIs (1)
 
-## Timestamps
+- [API Dynamics Platform](https://apis.io/apis/api-dynamics/api-dynamics-platform/) — The APIDynamics platform provides AI-driven API security and observability including API discovery, traffic analysis, real-time risk scoring, adaptive MFA,…
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### API Dynamics Platform
-The APIDynamics platform provides AI-driven API security and observability including API discovery, traffic analysis, real-time risk scoring, adaptive MFA, Zero Trust enforcement, shadow/zombie API detection, and anomaly detection for securing API ecosystems.
+#### MCP servers (1)
 
-**Human URL:** [https://www.apidynamics.com](https://www.apidynamics.com)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [apidynamics-site-mcp](https://apis.io/servers/api-dynamics/apidynamics-site-mcp/)
 
- - API Security, API Discovery, Zero Trust, API Observability
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://www.apidynamics.com)
-- [GettingStarted](https://www.apidynamics.com/why-apidynamics)
+- [Api Dynamics Authentication](https://apis.io/security/api-dynamics/api-dynamics-authentication/)
+- [Api Dynamics Domain Security](https://apis.io/security/api-dynamics/api-dynamics-domain-security/)
 
-## Common Properties
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Api Dynamics Plans Pricing](https://apis.io/plans/api-dynamics/api-dynamics-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Api Dynamics Rate Limits](https://apis.io/rate-limits/api-dynamics/api-dynamics-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Api Dynamics Finops](https://apis.io/finops/api-dynamics/api-dynamics-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.apidynamics.com)
+- [Documentation](https://www.apidynamics.com/documentation)
+- [Sign up](https://www.apidynamics.com/sign-up)
+- [Support](https://www.apidynamics.com/contact-us)
 - [Blog](https://www.apidynamics.com/news)
-- [Login](https://app.apidynamics.com)
-- [SignUp](https://www.apidynamics.com/signup)
-- [Support](https://www.apidynamics.com/contact)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| API Discovery | Automatically scan traffic, code, gateways, and ingress to build a complete API inventory with no blind spots, detecting shadow APIs and zombie APIs. |
-| Real-Time Risk Scoring | Continuously assess and score API risk in real time using AI and machine learning to analyze traffic patterns and detect anomalies that may indicate an attack. |
-| Adaptive Multi-Factor Authentication | Adaptive MFA that adjusts authentication requirements based on risk level, securing every API call including machine-to-machine and non-human interactions. |
-| Zero Trust Enforcement | Unified control plane with Zero Trust enforcement ensuring no API call is trusted by default and all requests are continuously validated. |
-| BOLA and BFLA Detection | Detect Broken Object Level Authorization (BOLA) and Broken Function Level Authorization (BFLA) vulnerabilities — the top API security risks identified by OWASP. |
-| Sensitive Data Tracking | Track and monitor sensitive data flowing through API calls to identify data exposure risks and ensure compliance. |
-| AI Security for APIs | AI-powered security analysis that predicts and counters new attack patterns, including security for AI/ML API endpoints. |
-| CI/CD Integration | Embed API security testing and traffic insights into DevOps and CI/CD pipelines for shift-left security practices. |
+**Kin Score 21.7** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 66.7 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 50.0 |
+| Access clarity | 13.2 |
 
-| Name | Description |
-|------|-------------|
-| API Security Posture Management | Continuously assess and improve the security posture of all APIs across the organization using automated scanning and risk scoring. |
-| Shadow API Elimination | Discover and remediate shadow APIs and zombie APIs that create security blind spots and compliance risks. |
-| Zero Trust API Access | Implement Zero Trust security for API access with adaptive MFA and continuous verification of every API call. |
-| Compliance and Data Protection | Track sensitive data in API traffic to meet compliance requirements and prevent unauthorized data exposure. |
+**Agent readiness 7.2** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| CI/CD Pipelines | Integrates with CI/CD pipeline tools to embed API security testing throughout the software development lifecycle. |
-| API Gateways | Integrates with API gateway solutions to provide traffic analysis and security enforcement at the gateway layer. |
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/api-dynamics/](https://apis.io/providers/api-dynamics/).
 
-**FN:** Kin Lane
+## How this profile is made
 
-**Email:** kin@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for API Dynamics: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/api-dynamics/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
